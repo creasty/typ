@@ -8,6 +8,18 @@ func Test_EpochTime(t *testing.T) {
 	et := NewEpochTime()
 	data := []byte("1480411283")
 
+	{
+		got, err := et.MarshalJSON()
+		if err != nil {
+			t.Error("error", err)
+			return
+		}
+
+		if string(got[:]) != "null" {
+			t.Error("error", string(got[:]))
+		}
+	}
+
 	if err := et.UnmarshalJSON(data); err != nil {
 		t.Error("should not fail")
 		return
@@ -23,20 +35,34 @@ func Test_EpochTime(t *testing.T) {
 		return
 	}
 
-	got, err := et.MarshalJSON()
-	if err != nil {
-		t.Error("error", err)
-		return
-	}
+	{
+		got, err := et.MarshalJSON()
+		if err != nil {
+			t.Error("error", err)
+			return
+		}
 
-	if string(got[:]) != string(data[:]) {
-		t.Error("error", string(got[:]), string(data[:]))
+		if string(got[:]) != string(data[:]) {
+			t.Error("error", string(got[:]), string(data[:]))
+		}
 	}
 }
 
 func Test_EpochMsec(t *testing.T) {
 	et := NewEpochMsec()
 	data := []byte("1480411283963")
+
+	{
+		got, err := et.MarshalJSON()
+		if err != nil {
+			t.Error("error", err)
+			return
+		}
+
+		if string(got[:]) != "null" {
+			t.Error("error", string(got[:]))
+		}
+	}
 
 	if err := et.UnmarshalJSON(data); err != nil {
 		t.Error("should not fail")
@@ -58,13 +84,15 @@ func Test_EpochMsec(t *testing.T) {
 		return
 	}
 
-	got, err := et.MarshalJSON()
-	if err != nil {
-		t.Error("error", err)
-		return
-	}
+	{
+		got, err := et.MarshalJSON()
+		if err != nil {
+			t.Error("error", err)
+			return
+		}
 
-	if string(got[:]) != string(data[:]) {
-		t.Error("error", string(got[:]), string(data[:]))
+		if string(got[:]) != string(data[:]) {
+			t.Error("error", string(got[:]), string(data[:]))
+		}
 	}
 }
