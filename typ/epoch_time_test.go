@@ -17,11 +17,12 @@ func Test_EpochTime(t *testing.T) {
 
 		if string(got[:]) != "null" {
 			t.Error("error", string(got[:]))
+			return
 		}
 	}
 
 	if err := et.UnmarshalJSON(data); err != nil {
-		t.Error("should not fail")
+		t.Error("should not fail", err)
 		return
 	}
 
@@ -61,11 +62,12 @@ func Test_EpochMsec(t *testing.T) {
 
 		if string(got[:]) != "null" {
 			t.Error("error", string(got[:]))
+			return
 		}
 	}
 
 	if err := et.UnmarshalJSON(data); err != nil {
-		t.Error("should not fail")
+		t.Error("should not fail", err)
 		return
 	}
 
