@@ -31,8 +31,8 @@ func Test_EpochTime(t *testing.T) {
 		return
 	}
 
-	if et.Time.Format("2006-01-02 15:04:05") != "2016-11-29 18:21:23" {
-		t.Error("error", et.Time)
+	if et.Time.UTC().Format("2006-01-02 15:04:05") != "2016-11-29 09:21:23" {
+		t.Error("error", et.Time.UTC())
 		return
 	}
 
@@ -76,8 +76,8 @@ func Test_EpochMsec(t *testing.T) {
 		return
 	}
 
-	if et.Time.Format("2006-01-02 15:04:05") != "2016-11-29 18:21:23" {
-		t.Error("error", et.Time)
+	if et.Time.UTC().Format("2006-01-02 15:04:05") != "2016-11-29 09:21:23" {
+		t.Error("error", et.Time.UTC())
 		return
 	}
 
