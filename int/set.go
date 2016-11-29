@@ -38,6 +38,14 @@ func (self *IntSet) RemoveSafe(item int) {
 	self.Remove(item)
 }
 
+func (self *IntSet) Include(item int) bool {
+	self.lock.Lock()
+	defer self.lock.Unlock()
+
+	_, ok := self.set[item]
+	return ok
+}
+
 func (self *IntSet) ToArray() []int {
 	self.lock.Lock()
 	defer self.lock.Unlock()
@@ -85,6 +93,14 @@ func (self *Int8Set) RemoveSafe(item int8) {
 	self.lock.Lock()
 	defer self.lock.Unlock()
 	self.Remove(item)
+}
+
+func (self *Int8Set) Include(item int8) bool {
+	self.lock.Lock()
+	defer self.lock.Unlock()
+
+	_, ok := self.set[item]
+	return ok
 }
 
 func (self *Int8Set) ToArray() []int8 {
@@ -136,6 +152,14 @@ func (self *Int16Set) RemoveSafe(item int16) {
 	self.Remove(item)
 }
 
+func (self *Int16Set) Include(item int16) bool {
+	self.lock.Lock()
+	defer self.lock.Unlock()
+
+	_, ok := self.set[item]
+	return ok
+}
+
 func (self *Int16Set) ToArray() []int16 {
 	self.lock.Lock()
 	defer self.lock.Unlock()
@@ -183,6 +207,14 @@ func (self *Int32Set) RemoveSafe(item int32) {
 	self.lock.Lock()
 	defer self.lock.Unlock()
 	self.Remove(item)
+}
+
+func (self *Int32Set) Include(item int32) bool {
+	self.lock.Lock()
+	defer self.lock.Unlock()
+
+	_, ok := self.set[item]
+	return ok
 }
 
 func (self *Int32Set) ToArray() []int32 {
@@ -234,6 +266,14 @@ func (self *Int64Set) RemoveSafe(item int64) {
 	self.Remove(item)
 }
 
+func (self *Int64Set) Include(item int64) bool {
+	self.lock.Lock()
+	defer self.lock.Unlock()
+
+	_, ok := self.set[item]
+	return ok
+}
+
 func (self *Int64Set) ToArray() []int64 {
 	self.lock.Lock()
 	defer self.lock.Unlock()
@@ -281,6 +321,14 @@ func (self *UintSet) RemoveSafe(item uint) {
 	self.lock.Lock()
 	defer self.lock.Unlock()
 	self.Remove(item)
+}
+
+func (self *UintSet) Include(item uint) bool {
+	self.lock.Lock()
+	defer self.lock.Unlock()
+
+	_, ok := self.set[item]
+	return ok
 }
 
 func (self *UintSet) ToArray() []uint {
@@ -332,6 +380,14 @@ func (self *Uint8Set) RemoveSafe(item uint8) {
 	self.Remove(item)
 }
 
+func (self *Uint8Set) Include(item uint8) bool {
+	self.lock.Lock()
+	defer self.lock.Unlock()
+
+	_, ok := self.set[item]
+	return ok
+}
+
 func (self *Uint8Set) ToArray() []uint8 {
 	self.lock.Lock()
 	defer self.lock.Unlock()
@@ -379,6 +435,14 @@ func (self *Uint16Set) RemoveSafe(item uint16) {
 	self.lock.Lock()
 	defer self.lock.Unlock()
 	self.Remove(item)
+}
+
+func (self *Uint16Set) Include(item uint16) bool {
+	self.lock.Lock()
+	defer self.lock.Unlock()
+
+	_, ok := self.set[item]
+	return ok
 }
 
 func (self *Uint16Set) ToArray() []uint16 {
@@ -430,6 +494,14 @@ func (self *Uint32Set) RemoveSafe(item uint32) {
 	self.Remove(item)
 }
 
+func (self *Uint32Set) Include(item uint32) bool {
+	self.lock.Lock()
+	defer self.lock.Unlock()
+
+	_, ok := self.set[item]
+	return ok
+}
+
 func (self *Uint32Set) ToArray() []uint32 {
 	self.lock.Lock()
 	defer self.lock.Unlock()
@@ -471,6 +543,14 @@ func (self *Uint64Set) AddSafe(item uint64) {
 
 func (self *Uint64Set) Remove(item uint64) {
 	delete(self.set, item)
+}
+
+func (self *Uint64Set) Include(item uint64) bool {
+	self.lock.Lock()
+	defer self.lock.Unlock()
+
+	_, ok := self.set[item]
+	return ok
 }
 
 func (self *Uint64Set) RemoveSafe(item uint64) {
